@@ -1,0 +1,69 @@
+/* 
+ * This file is used for generic site styling.
+ * Changes that effect the entire project's styles go here.
+ * (as opposed to just effecting a small component of site.)
+ */
+ 
+ .clearfix:after {
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body {
+  color: #2c2f33;
+  overflow: none;
+}
+
+main {
+  flex: 3;
+  height: 100vh;
+}
+
+a:link,
+a:visited,
+a:hover {
+  color: #2c2f33;
+}
+
+a:active {
+  color: #7289da;
+}
+
+.wrapper {
+  display: flex;
+  overflow: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.border-fix{
+  border-radius:25px 25px 10px 10px;
+  border: 2px solid white;
+}
+
+.map {
+  z-index: 5;
+}
+
+@media only screen and (max-width: 500px) {
+  .mobile-hide {
+     display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mobile-show {
+     display: show;
+  }
+}

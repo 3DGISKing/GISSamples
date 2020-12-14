@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link rel="stylesheet" href="js/lib/openlayer-v5.2.0-dist/ol.css" type="text/css">
+    <script src="js/lib/openlayer-v5.2.0-dist/ol.js"></script>
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+
+
+</head>
+<body>
+
+<div>
+    Country Code
+    <input id="countryCode" type="text">
+    <button id="testButton" type="button">Test</button>
+</div>
+
+<div id='map' class="map"></div>
+<div id="flag_container">
+    <img id ='flag'  src="./mapdata/image/flag/AD.png" height = "64" width="64" >
+</div>
+
+<script src="js/src/app.js"></script>
+
+<!--how to use map interface -->
+
+<script>
+    document.getElementById('testButton').onclick = function () {
+        var countryCode = document.getElementById('countryCode').value;
+
+        if(countryCode == '') {
+            alert('Please input country code!');
+            return;
+        }
+
+        if(countryCode.length != 2) {
+            alert('Invalid country code!');
+            return;
+        }
+
+        theMap.identify(countryCode);
+    };
+
+</script>
+
+</body>
+</html>

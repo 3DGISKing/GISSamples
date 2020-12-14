@@ -1,0 +1,9 @@
+.map {
+    height: 70%;
+    width: 70%;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+
+    background-color:#C8CDD3;
+}

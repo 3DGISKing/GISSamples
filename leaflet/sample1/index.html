@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>רמות משנה - מערכת מיפוי</title>
+	<meta charset="utf-8" />
+	<!--link rel="stylesheet" href="css/leaflet-0.7.7.css" /-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+	<link rel="stylesheet" href="css/L.Control.SwitchScaleControl.css" />
+	<link rel="stylesheet" href="css/leaflet-measure.css" />
+	<link rel="stylesheet" href="css/easy-button.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+	<!--link rel="stylesheet" href="css/Control.FullScreen.css" /-->
+	<link rel="stylesheet" href="css/Leaflet.StyleEditor.min.css" />
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.66.2/dist/L.Control.Locate.min.css" />
+	<link rel="stylesheet" href="css/webmap.css">
+	<link rel="stylesheet" href="css/leaflet.NavBar.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<!--link rel="stylesheet" href="css/patch.css" /-->
+	<link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/L.Control.latlon.css" />
+	<link rel="stylesheet" href="css/L.Control.SwitchScaleControl.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-measure@3.1.0/dist/leaflet-measure.css" />
+	<!--link rel="stylesheet" href="css/leaflet.print.css"/-->
+
+	<!--script src="dist/leaflet-0.7.7-mod.js"></script-->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+	<script src="layers/layers.js"></script>
+	<script src="dist/wms-getfeatureinfo.js"></script>
+	<script src="dist/easy-button.js"></script>
+	<script src="dist/leaflet-measure.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+	<!--script src="dist/Control.FullScreen.js"></script-->
+	<script src="dist/Leaflet.StyleEditor.min.js"></script>
+	<script src="dist/leaflet-geodesy.js"></script>
+	<!--script src="dist/jquery-2.1.4.min.js"></script-->
+	<script src="dist/touche.min.js"></script>
+	<script src="dist/reqwest-2.0.5.min.js"></script>
+	<script src="dist/leaflet.NavBar.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.66.2/dist/L.Control.Locate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+	<script src="dist/leaflet-hash.js"></script>
+	<script src="func/functions.js"></script>
+	<script src="dist/leaflet.browser.print.js"></script>
+	<script src="dist/L.Control.latlon.js"></script>
+	<script src="dist/proj4-compressed.js"></script>
+	<script src="dist/L.Control.SwitchScaleControl.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet-measure@3.1.0/dist/leaflet-measure.en.js"></script>
+	<!--script src="dist/leaflet.print.js"></script-->
+	<!--script src="http://gate.expert2it.co.il:8080/geoserver/pdf/info.json?var=printConfig"></script-->
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+</head>
+
+<body>
+	<div id="map" style="width: 100%; height: 100%;"></div>
+
+	<!--style type="text/css" media="screen">
+
+
+	.leaflet-control-layers-expanded {
+	height: 100px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+
+</style-->
+
+
+	<style type="text/css" media="screen">
+		.leaflet-top .leaflet-control {
+			margin-top: 5px;
+		}
+
+		.leaflet-draw-toolbar {
+			margin-top: 0px;
+		}
+
+		.leaflet-styleeditor-button {
+			margin-top: 5px;
+		}
+
+		.leaflet-touch .leaflet-control-measure .leaflet-control-measure-toggle,
+		.leaflet-touch .leaflet-control-measure .leaflet-control-measure-toggle:hover {
+			width: 30px;
+			height: 30px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var map = L.map('map', {
+			zoomControl: true,
+			crs: L.CRS.EPSG3857,
+			zoomDelta: 0.25,
+			zoomSnap: 0
+		}).setView([32.5973, 35.0571], 17);
+
+		//Initialize the StyleEditor
+
+		map.addControl(new L.Control.SwitchScaleControl({
+			updateWhenIdle: true,
+			scales: [1000, 2000, 5000, 10000, 25000, 50000, 100000, 200000, 500000, 1000000, 2500000, 5000000, 10000000, 25000000],
+			roundScales: true,
+			recalcOnPositionChange: true, // Flag: whether to recalc scale on map position change.
+			recalcOnZoomChange: true // Flag: whether to recalc scale on map zoom change.
+		}));
+
+		var hash = new L.Hash(map);
+
+		let styleEditor = L.control.styleEditor({
+			position: 'topleft',
+			useGrouping: false
+		})
+		//map.addControl(styleEditor)
+
+
+
+		/*basemap.addTo(map);
+		ramot_menashe_15.addTo(map);
+		var layerOrder = new Array();*/
+
+		/*layerControl = L.control.layers({}, {}, {
+		collapsed: true
+		});
+		*/
+
+
+
+		//basemap.addTo(map);
+		//raster_group.addTo(map);
+		map.addLayer(raster_group);
+		map.removeLayer(basemap);
+		map.removeLayer(kav_binyan);
+		map.removeLayer(parcel);
+		//map.removeLayer(biuv);
+		map.removeLayer(maim);
+		map.removeLayer(hashmal);
+		map.removeLayer(merkaziot_hashmal);
+		map.removeLayer(tikshoret);
+		map.removeLayer(noy);
+
+		var checkBrowser = function () {
+			if (L.Browser.mobile)
+				return true;
+			else
+				return false
+		}
+
+		L.control.layers(null, layers, {
+			collapsed: checkBrowser(),
+			autoZIndex: false
+		}).addTo(map);
+
+
+
+
+
+		L.control.scale({
+			options: {
+				position: 'bottomleft',
+				maxWidth: 100,
+				metric: true,
+				imperial: false,
+				updateWhenIdle: false
+			}
+		}).addTo(map);
+
+		map.addControl(new L.control.measure({
+			position: 'topleft',
+			primaryLengthUnit: 'meters', secondaryLengthUnit: 'kilometers',
+			primaryAreaUnit: 'sqmeters', secondaryAreaUnit: undefined,
+			activeColor: '#ed6aec',
+			completedColor: '#ed6aec',
+			popupOptions: { className: 'leaflet-measure-resultpopup', autoPanPadding: [10, 10] },
+			captureZIndex: 10000
+		}));
+
+		var latlon = new L.Control.Latlon();
+		latlon.addTo(map);
+		leaflet_control_latlon();
+		map.on('dragend', leaflet_control_latlon);
+		map.on('zoomend', leaflet_control_latlon);
+
+		L.control.navbar().addTo(map); // Home Button & Back - Foraward
+
+		const forwardButton = document.getElementsByClassName('leaflet-control-navbar-fwd leaflet-control-navbar-fwd-disabled leaflet-disabled');
+		const backButton = document.getElementsByClassName('leaflet-control-navbar-back leaflet-control-navbar-back-disabled leaflet-disabled');
+
+		while (forwardButton.length > 0) forwardButton[0].remove();
+		while (backButton.length > 0) backButton[0].remove();
+
+		$('.leaflet-container').css('cursor', 'default'); // change hand to cursor
+		/*var printer = L.easyPrint({
+		//tileLayer: tiles,
+		sizeModes: ['A4Landscape', 'A4Portrait'],
+		filename: 'myMap',
+		exportOnly: false,
+		hideControlContainer: true,
+		tileWait: 1
+		
+		}).addTo(map);*/
+
+
+		L.control.browserPrint({
+			closePopupsOnPrint: false,
+			printModes: [
+				L.control.browserPrint.mode.landscape(),
+				L.control.browserPrint.mode.portrait(),
+				L.control.browserPrint.mode.custom(),
+				L.control.browserPrint.mode.custom("A0", "A0")]
+		}).addTo(map);
+
+
+		var template = '<form id="popup-form">\
+	  <label for="input-speed">תיאור:</label>\
+	  <input id="input-speed" class="popup-input" type="text" />\
+	  <table class="popup-table">\
+	    <tr class="popup-table-row">\
+	      <th class="popup-table-header">Arc numer:</th>\
+	      <td id="value-arc" class="popup-table-data"></td>\
+	    </tr>\
+	    <tr class="popup-table-row">\
+	      <th class="popup-table-header">Current speed:</th>\
+	      <td id="value-speed" class="popup-table-data"></td>\
+	    </tr>\
+	  </table>\
+	  <button id="button-submit" type="button">Save Changes</button>\
+	</form>';
+
+		function layerClickHandler(e) {
+
+			var marker = e.target,
+				properties = e.target.feature.properties;
+
+			if (marker.hasOwnProperty('_popup')) {
+				marker.unbindPopup();
+			}
+
+			marker.bindPopup(template);
+			marker.openPopup();
+
+			L.DomUtil.get('value-arc').textContent = properties.arc;
+			L.DomUtil.get('value-speed').textContent = properties.speed;
+
+			var inputSpeed = L.DomUtil.get('input-speed');
+			inputSpeed.value = properties.speed;
+			L.DomEvent.addListener(inputSpeed, 'change', function (e) {
+				properties.speed = e.target.value;
+			});
+
+			var buttonSubmit = L.DomUtil.get('button-submit');
+			L.DomEvent.addListener(buttonSubmit, 'click', function (e) {
+				marker.closePopup();
+			});
+
+		}
+
+
+
+
+
+
+		L.control.locate({
+			follow: true,
+			keepCurrentZoomLevel: true,
+			flyTo: true,
+			strings: {
+				title: "GPS Location"
+			},
+			locateOptions: {
+				enableHighAccuracy: true
+			}
+		}).addTo(map); // GPS
+
+		/*---------------Drawing - Measure-----------------*/
+
+
+		let drawnItems = new L.FeatureGroup()
+		map.addLayer(drawnItems)
+
+		let drawControl = new L.Control.Draw({
+			draw: {
+				polyline: {
+					shapeOptions: {
+						color: '#f79320',
+						opacity: .6
+					},
+					showLength: true,
+					metric: true
+				},
+				polygon: {
+					allowIntersection: false,
+					drawError: {
+						color: '#b00b00',
+						timeout: 500
+					},
+					shapeOptions: {
+						color: '#f79320',
+						opacity: .6
+					},
+					showArea: true,
+					metric: true
+				},
+				circle: {
+					shapeOptions: {
+						color: '#662d91'
+
+					}
+				},
+				marker: true,
+				circlemarker: false,
+				rectangle: false
+			},
+			edit: {
+				featureGroup: drawnItems
+			}
+		});
+		//map.addControl(drawControl)
+		var geojson = L.geoJson({
+			"type": "FeatureCollection",
+			"features": [{
+				"type": "Feature",
+				"geometry": {
+					"type": "Point",
+					"coordinates": [0, 0]
+				},
+				"properties": {
+					"arc": 321,
+					"speed": 123
+				}
+			}]
+		})
+
+		map.on('draw:created', function (e) {
+			let type = e.layerType,
+				layer = e.layer
+			drawnItems.addLayer(layer);
+			layerClickHandler(e);
+			/*var getPopupContent = function(layer) {
+						if (layer instanceof L.Marker)
+							layerClickHandler(e);
+	
+	};*/
+
+			//layer.on('click', layerClickHandler);
+
+
+
+		})
+
+		L.easyButton('fa fa-pencil fa-lg', function () {
+			$('.leaflet-control-styleeditor-interior').is(':visible') ? map.removeControl(styleEditor) : map.addControl(styleEditor)
+			$('.leaflet-draw-section').is(':visible') ? map.removeControl(drawControl) : map.addControl(drawControl)
+		}, 'Drawing Tools').addTo(map);
+
+	</script>
+</body>
+
+</html>

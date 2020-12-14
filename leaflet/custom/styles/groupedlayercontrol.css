@@ -1,0 +1,91 @@
+.leaflet-control-layers-group-name {
+  margin-bottom: .2em;
+  margin-left: 3px;
+	font: bold 18px/14px 'Roboto', sans-serif;
+}
+
+.leaflet-control-layers-group {
+  margin-bottom: .5em;
+  height: 100%;
+  text-shadow: 1px 1px #111;
+}
+
+.leaflet-control-layers-scrollbar {
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+/* Change Icons */
+
+div.leaflet-control-layers:first-child a.leaflet-control-layers-toggle{
+	background-image: url('../data/images/icons/icon_ironstone.png');
+}
+div.leaflet-control-layers:nth-child(2) a.leaflet-control-layers-toggle{
+  background-image: url('../data/images/icons/icon_armorer.png');
+}
+div.leaflet-control-layers:nth-child(3) a.leaflet-control-layers-toggle{
+	background-image: url('../data/images/icons/icon_tanner.png');
+}
+div.leaflet-control-layers:nth-child(4) a.leaflet-control-layers-toggle{
+	background-image: url('../data/images/icons/icon_vista.png');
+}
+div.leaflet-control-layers:nth-child(5) a.leaflet-control-layers-toggle{
+	background-image: url('../data/images/icons/icon_petmaster.png');
+}
+
+
+/* Desktop Only Toggle Button Styles */
+
+@media only screen  and (min-width : 1224px) {
+  div.leaflet-control{
+    clear: none;
+  }
+  div.leaflet-touch div.leaflet-control-layers{
+    margin: 0;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width: 200px;
+    padding: 6px 10px 6px 6px;
+  }
+  .leaflet-bar a, .leaflet-control-layers-toggle{
+    background-position: 50% 2px;
+  }
+  .leaflet-touch .leaflet-control-layers-toggle{
+    height: 38px;
+  }
+  a.leaflet-control-layers-toggle{
+    text-decoration: none;
+  }
+  a.leaflet-control-layers-toggle::after{
+    display: block;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 34px;
+    padding-left: 45px;
+    padding-top: 5px;
+    width: 110px;
+  }
+  div.leaflet-control-layers:first-child a.leaflet-control-layers-toggle::after{
+    content: 'Resources';
+  }
+  div.leaflet-control-layers:nth-child(2) a.leaflet-control-layers-toggle::after{
+    content: 'Thralls';
+  }
+  div.leaflet-control-layers:nth-child(3) a.leaflet-control-layers-toggle::after{
+    content: 'Named Thralls';
+  }
+  div.leaflet-control-layers:nth-child(4) a.leaflet-control-layers-toggle::after{
+    content: 'Locations';
+  }
+  div.leaflet-control-layers:nth-child(5) a.leaflet-control-layers-toggle::after{
+    content: 'Pets';
+  }
+  .leaflet-control-layers .leaflet-control-layers-group-label{
+    	margin-bottom: 8px;
+   }
+  .leaflet-control-layers label, .leaflet-control-layers input{
+    cursor: pointer;
+  } 
+}

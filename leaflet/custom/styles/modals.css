@@ -1,0 +1,136 @@
+/*
+ * Styles in this file should only modify modals.
+ * Please reuse classes where possible.
+ */
+
+.modal {
+  background-image: url("../data/images/site/modal_bg.png");
+  border-bottom: 8px solid #000000;
+  width: 450px;
+  opacity: 0;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  pointer-events: none;
+  border-radius: 25px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s cubic-bezier(0.48, 0.2, 0.76, 0.99);;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+}
+
+.modal.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.close-modal {
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+}
+
+.close-modal:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+.close-modal:after {
+  content: '✖';
+}
+
+.modal__bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.39, 0.05, 0.31, 0.68);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+
+.modal__bg:hover {
+  cursor: pointer;
+}
+
+.modal__bg.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-header {
+  color: #f5c388;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 20px 30px 0 30px;
+}
+
+.modal-content {
+  padding: 20px 30px;
+}
+
+.modal-content__img {
+  float: left;
+  width: 20%;
+}
+
+.modal-content__text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  float: left;
+  line-height: 18px;
+  width: 80%;
+}
+
+.modal-content__strong {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #f5c388;
+  font-weight: 700;
+}
+
+.modal-content__paypal > .modal-content__text  {
+  margin-bottom: 20px;
+}
+
+.modal-content__android > .modal-content__text  {
+  margin-bottom: 20px;
+}
+
+.modal-content__paypal {
+  padding: 30px;
+}
+
+.modal-content__android {
+  padding: 30px;
+}
+
+.modal-content__database {
+  padding: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+  .modal {
+    width: 90%;
+  }
+
+  .modal-content,
+  .modal-content__android,
+  .modal-content__paypal {
+    padding: 10px 20px;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+}

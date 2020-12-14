@@ -1,0 +1,16 @@
+{
+  "name": "ramot-menashe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "leaflet": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MaromGIS",
+  "license": "ISC",
+  "description": ""
+}

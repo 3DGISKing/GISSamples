@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    .sphere,
+    .graticule {
+        stroke: #aaa;
+        fill: none;
+    }
+</style>
+<body>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+<script src="./Versor.js" ></script>
+<script>
+    var land, borders,countries ;
+    
+    var width = 960, height = 500;
+
+    d3.json("./countries-110m.json", function(error, topology) {
+        if (error)
+            throw error;
+
+        var geojson = topojson.feature(topology, topology.objects.countries);
+        land = topojson.feature(topology, topology.objects.land);
+        
+        console.log("geojson", geojson);
+
+        borders = topojson.mesh(topology, topology.objects.countries, function(a, b) { return a !== b});
+
+        countries = topojson.feature(topology, topology.objects.countries).features;
+        
+        var tilt = 20;
+
+        var projection = d3.geo.orthographic()
+            .scale(240)
+            .translate([width / 2, height / 2])
+            .clipAngle(90 + 1e-6)
+            .precision(.3);
+
+        var path = d3.geo.path()
+            .projection(projection);
+        
+        var svg = null;
+        
+        function render(country, arc) {
+            if(svg)
+                svg.remove();
+            
+            svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+            
+            svg.append("path")
+                .datum({type: "Sphere"})
+                .attr("class", "sphere")
+                .attr("d", path);
+
+            svg.selectAll("path")
+                .data(countries)
+                .enter()
+                .append("path")
+                .attr("d", path)
+                .style("stroke", "#fff")
+                .style("stroke-width", "1")
+                .style("fill", function(feature) {
+                    if(feature.properties.name === country.properties.name) {
+                        return "rgb(255, 0, 0)";
+                    }
+                    else
+                        return "rgb(213,222,217)";
+                });
+
+            svg.append("path")
+                .datum(arc)
+                .attr("class", "sphere")
+                .attr("d", path)
+                .style("stroke-width", "5")
+                .style("stroke", "#000")
+        }
+        
+        var transition = null;
+
+
+        var r1, r2 = [0, 0, 0];
+        
+        var prevCountry = null;
+        countries.forEach(function (country) {
+            var p1, p2;
+            
+            if(prevCountry === null)
+                p1 = [0, 0];
+            else
+                p1 = d3.geoCentroid(prevCountry);
+            
+            p2 = d3.geoCentroid(country);
+            
+            r1 = r2;
+            r2 = [-p2[0], tilt - p2[1], 0];
+            
+            var ip = d3.geoInterpolate(p1, p2);
+            var iv = interpolateAngles(r1, r2);
+            
+            if(transition == null)
+                transition = d3.transition();
+
+            transition = transition.transition()
+                .duration(3250)
+                .tween("render", function() {
+                    return function (t) {
+                        var s = [0, 0];
+                        
+                        s[0] = p1[0];
+                        s[1] = p1[1];
+                        
+                        projection.rotate(iv(t));
+                        render(country,  {type: "LineString", coordinates: [s, ip(t)]});
+                    }
+                 })
+                .transition()
+                .tween("render", function(t) {
+                    return function(t) {
+                        console.log("qq");
+                        render(country, {type: "LineString", coordinates: [ip(t), p2]});
+                    }
+            });
+            
+            prevCountry = country;
+        })
+        
+    });
+</script>

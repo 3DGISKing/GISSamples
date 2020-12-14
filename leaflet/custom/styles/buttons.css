@@ -1,0 +1,67 @@
+/*
+ * Styles in this file should only modify buttons.
+ * Please reuse classes where possible.
+ */
+
+.button-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+}
+
+.android-button,
+.database-button,
+.info-button,
+.donate-button {
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  background-image: url("../data/images/site/bg_tipT.png");
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 18px;
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+}
+
+.info-button:hover {
+  background-color: #000;
+  border-bottom: 6px solid #000;
+  cursor: pointer;
+}
+
+.donate-button:hover {
+  background-color: #000;
+  border-bottom: 6px solid #000;
+  cursor: pointer;
+}
+
+.android-button:hover {
+  background-color: #000;
+  border-bottom: 6px solid #000;
+  cursor: pointer;
+}
+
+.database-button:hover {
+  background-color: #000;
+  border-bottom: 6px solid #000;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .android-button,
+  .database-button,
+  .info-button,
+  .donate-button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 8px 10px;
+  }
+}
