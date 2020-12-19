@@ -1,0 +1,31 @@
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>Web-based Mapping of Mecklenburg schools </title>     
+    <link href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/css/ol.css" rel="stylesheet" type="text/css">
+     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/build/ol.js"></script>
+     <link rel="stylesheet" href="https://rawgit.com/walkermatt/ol-layerswitcher/master/src/ol-layerswitcher.css"/>     
+     <link rel="stylesheet" href="https://rawgit.com/walkermatt/ol-layerswitcher/master/examples/layerswitcher.css" />
+     <script src="https://rawgit.com/walkermatt/ol-layerswitcher/master/dist/ol-layerswitcher.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+     <link rel="stylesheet" href="./app.css" />
+   </head>
+   <body>
+        <h2><center>Web-based Mapping of Mecklenburg schools </center></h2>
+        <h4><center>Name</center></h4>
+        <div style="right: 250px; position: absolute; top: 250px; font-size: 23px; color: blue; font-weight: bold">187 public schools</div>
+        <div style="right: 250px; position: absolute; top: 320px; font-size: 23px; color: blue; font-weight: bold">95 private schools</div>
+        <div id="map" class="map" style = "center; width:1000px; height: 800px"></div>
+        <!--identify pop up -->
+        <div id="popup" class="ol-popup">
+            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+            <br>
+
+            <div id = 'school-name'> </div>
+        </div>
+
+        <script src="./app.js"></script>
+        <script src="./main.js"></script>
+  </body>
+</html> 

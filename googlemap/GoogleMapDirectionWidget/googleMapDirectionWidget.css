@@ -1,0 +1,177 @@
+#googleDirectionWidget {
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.tactile-searchbox-input::placeholder { /* Most modern browsers support this now. */
+    color: white !important;
+}
+
+.widget-directions-omnibox {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 308px;
+    background: #1A73E8 !important;
+    color: rgba(255,255,255,0.87);
+}
+
+.right {
+    -webkit-transform: translateX(0px);
+    -webkit-animation-name: right;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes right { from { -webkit-transform: translateX(-308px); }
+    to {  -webkit-transform: translateX(0px);  }}
+
+.left {
+    -webkit-transform: translateX(-308px);
+    -webkit-animation-name: left;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes left { from { -webkit-transform: translateX(0px); }
+    to {  -webkit-transform: translateX(-308px);  }}
+
+.widget-directions-travel-mode-switcher  {
+    height: 48px;
+    padding-left: 10px;
+}
+
+.directions-travel-mode-selector {
+    display: inline-block;
+}
+
+.directions-travel-mode-selector .travel-mode {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.directions-selected-travel-mode{
+    z-index: 0;
+}
+
+.directions-selected-travel-mode::after {
+    content: '';
+    border-radius: 100%;
+    position: absolute;
+    background-color: #185ABC;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    margin: 6px 3px 5px 3px;
+    height: 36px;
+    width: 36px;
+}
+
+.travel-mode button{
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.directions-travel-mode-selector .directions-travel-mode-icon{
+    width: 24px;
+    height: 24px;
+    margin: 12px 9px 11px 9px;
+}
+
+.widget-directions-close {
+    background : transparent;
+    position: absolute;
+    right: 24px;
+    top: 12px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.widget-directions-icon {
+    background-image: url(//maps.gstatic.com/tactile/directions/omnibox/directions-1x-20180521.png);
+    background-size: 96px 240px;
+    width: 24px;
+    height: 24px;
+}
+
+.widget-directions-waypoints{
+    position: relative;
+}
+.widget-directions-searchbox-container {
+    height: 40px;
+}
+
+.widget-directions-omnibox .searchbox {
+    background: #1A73E8 !important;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.widget-directions-searchbox-container .searchbox{
+    position: relative;
+    width: auto;
+    height: 38px;
+    padding: 12px 12px 4px 12px;
+}
+
+.tactile-searchbox-input{
+    color: inherit;
+    font-size: 15px;
+}
+
+.searchbox input {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.widget-directions-input-underline {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    bottom: -1px;
+    height: 5px;
+    border: none;
+    border-bottom: 1px solid #97bcf9;
+    right: 12px;
+    left: 12px;
+}
+
+.widget-pane-toggle-button-container {
+    position: relative;
+    float : left;
+    z-index: 0;
+    top: -128px;
+    left: 308px;
+    width : 23px;
+}
+
+.googleDirectionWidget {
+    display : inline-block;
+}
+
+.widget-pane-toggle-button{
+    width: 23px;
+    height: 48px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.9) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAQAAAAXDMSnAAAAi0lEQVR4AX3JQcqBURQG4O/+9WNG30D3vOfSDTuQsgcZyBakZANSzMVMBme3zsBI5/VMn4ZKLP5ki1E4tYejWpilxVUtzOEUD68odYmXR5BJNp/4zllXD2phllYvamHmirsayUkfJ5ruHzueTldC08kcT5YOY9xYujqQM03XKXuaLmEtNF1e1Nz89gbL+0do6OEwRwAAAABJRU5ErkJggg==) 7px center/7px 10px no-repeat;
+    border-left: 1px solid #D4D4D4;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 0;
+}
+
