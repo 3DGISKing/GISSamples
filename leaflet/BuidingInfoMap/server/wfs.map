@@ -1,0 +1,63 @@
+MAP
+  #
+  # Start of web interface definition
+  #
+
+  WEB
+    IMAGEPATH "/ms4w/tmp/ms_tmp/"
+    IMAGEURL "/ms_tmp/"
+    METADATA
+      "wfs_title"          "Edification Information System WFS Server" ## REQUIRED
+      "wfs_onlineresource" "http://localhost/cgi-bin/wfs?" ## Recommended
+      "wfs_srs"            "EPSG:4326 EPSG:4269 EPSG:3978 EPSG:3857" ## Recommended
+      "wfs_abstract"       "Edification Informatin System WFS service." ## Recommended
+      "wfs_enable_request" "*"  # necessary
+    END
+  END
+
+  PROJECTION
+    "init=epsg:4326"
+  END
+
+  # Start of LAYER DEFINITIONS ---------------------------------------------
+  LAYER 
+    NAME         edification
+
+    METADATA
+      "wfs_title"         "Edification Layer" ##REQUIRED
+      "wfs_srs"           "EPSG:4326" ## REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "ID" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    
+    STATUS       ON
+    TYPE         POLYGON
+    CONNECTIONTYPE POSTGIS
+    CONNECTION   "host=127.0.0.1 port=5432 dbname=gisdb user=postgres password=mmm"
+    DATA         "geom from edification"
+  END # States polygon layer ends here
+  # End of LAYER DEFINITIONS -------------------------------
+
+  # Start of LAYER DEFINITIONS ---------------------------------------------
+  LAYER 
+    NAME         area
+
+    METADATA
+      "wfs_title"         "Area layer" ##REQUIRED
+      "wfs_srs"           "EPSG:4326" ## REQUIRED
+      "gml_include_items" "all" ## Optional (serves all attributes for layer)
+      "gml_featureid"     "ID" ## REQUIRED
+      "wfs_enable_request" "*"
+    END
+    
+    STATUS       ON
+    TYPE         POLYGON
+    CONNECTIONTYPE POSTGIS
+    CONNECTION   "host=127.0.0.1 port=5432 dbname=gisdb user=postgres password=mmm"
+    DATA         "geom from area"
+   
+  END # States polygon layer ends here
+  # End of LAYER DEFINITIONS -------------------------------
+
+END 

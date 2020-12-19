@@ -1,0 +1,2 @@
+RewriteEngine On    # Turn on the rewriting engine
+RewriteRule    wfsservice    cgi-bin/mapserv.exe?map=/ms4w/apps/wfs.map&SERVICE=WFS&VERSION=1.0.0    [NC,L]    

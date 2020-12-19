@@ -1,0 +1,75 @@
+<?php
+// Start the session
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Edification Information System</title>
+
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+	
+	 <!--
+        bootstrap
+    -->
+	
+	<link href="./scripts/thirdparty/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+   
+    <script type="text/javascript" src="./scripts/thirdparty/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./scripts/thirdparty/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./scripts/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+
+    <!--
+        Leaflet plugin which adds a toolbar that allows users to draw points, lines, and polygons on the map
+    -->
+
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.3/leaflet.draw.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.3/leaflet.draw.js'></script>
+    <script src='scripts/thirdparty/mapbox/plugins/Leaflet-WFST.src.js'></script>
+
+    <link rel="stylesheet" href="css/edfinfsys.css">
+    <script data-main="scripts/main.js" src="scripts/thirdparty/requirejs-2.1.20/require.js"></script>
+</head>
+<body>
+
+<?php include './php/readconfig.php';?>
+
+<div id='map'></div>
+
+<div class='area_query' style = " border: 2px solid rgba(0,0,0,.2);  background-clip: padding-box;">
+    <div style="margin-left: 10px; margin-right: 10px; ">
+        <h3 style="margin-left: 3px; margin-bottom: 10px; margin-top: 10px; text-align: center;"> Edification Search by Area</h3>
+        <select id="field_name" style=" margin-bottom: 10px; width: 100px;">
+        </select>
+
+        <select id="operator" style="width: 70px;">
+            <option value = ">"  > Greater          </option>
+            <option value = "<"  > Less             </option>
+            <option value = "==" > Equal            </option>
+        </select>
+
+        <input id="field_value" style="width: 50px;"/>
+        </div>
+    <div style="margin-left: 10px; margin-right: 10px;margin-bottom: 10px; ">
+        <button id="applybutton" style="margin-left: 125px;">Search</button>
+        <button id="clearbutton">Clear</button>
+    </div>
+ </div>
+
+<div id='legend' style='display:none;'>
+    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map Legend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
+    <nav class='legend clearfix'>
+        <span style='background:#312aff;'></span>
+        <span style='background:#ff5a19;'></span>
+         <label>Area</label>
+         <label>Edification</label>
+     </nav>
+</div>
+
+</body>
+</html>
