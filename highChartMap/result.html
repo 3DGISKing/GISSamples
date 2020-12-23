@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        #wrapper {
+            height: 1000px;
+            width: 1500px;
+            margin: 0 auto;
+            padding: 0;
+            overflow:visible;
+        }
+        #container {
+            height: 500px;
+            width: 500px;
+            margin: 0;
+        }
+        #info {
+            width: 100%;
+
+            margin: 0 0 0 0;
+        }
+        #info h2 {
+            font-size: 13pt;
+        }
+
+        #info h4 {
+            margin: 1em 0 0 0;
+        }
+
+        #equity-chart {
+            float: left;
+            width: 250px;
+        }
+
+        #bonds-chart {
+            float: right;
+            width: 250px;
+        }
+
+        .subheader {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 920px) {
+            #wrapper, #container,  #info {
+                float: none;
+                width: 100%;
+                height: auto;
+                margin: 0.5em 0;
+                padding: 0;
+                border: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+​<div id="wrapper">
+    <div id = "map-chart-container" style="">
+        <div id="container" style="float: left"></div>
+        <div id = "radio-div" style="float: right; width: 200px;height: 500px">
+            <br><br><br><br><br><br>
+            <input id = "develop-market" type="radio" name="gender" value="male">Developed Market<br>
+            <input id = "emerging-market" type="radio" name="gender" value="female">Emerging Market<br>
+        </div>
+    </div>
+
+    <div id="info">
+        <h2 style="text-align:center"></h2>
+        <div class="subheader" style="text-align:center"></div>
+        <div id="equity-chart"></div>
+        <div id="bonds-chart"></div>
+    </div>
+</div>
+<script src='./result.js'></script>
+</body>
+</html>

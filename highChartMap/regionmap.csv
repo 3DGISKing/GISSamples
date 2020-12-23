@@ -1,0 +1,210 @@
+Country Name,Country Code,ISO2,OnMapClick
+Afghanistan,AFG,AF,FrontierMarket
+Albania,ALB,AL,FrontierMarket
+Algeria,DZA,DZ,FrontierMarket
+American Samoa,ASM,AS,FrontierMarket
+Andorra,AND,AD,FrontierMarket
+Angola,AGO,AO,FrontierMarket
+Antigua and Barbuda,ATG,AG,FrontierMarket
+Argentina,ARG,AR,LatinAmericanMarket
+Armenia,ARM,AM,FrontierMarket
+Aruba,ABW,AW,FrontierMarket
+Australia,AUS,AU,PacificMarket
+Austria,AUT,AT,EuropeanMarket
+Azerbaijan,AZE,AZ,FrontierMarket
+"Bahamas, The",BHS,BS,FrontierMarket
+Bahrain,BHR,BH,FrontierMarket
+Bangladesh,BGD,BD,FrontierMarket
+Barbados,BRB,BB,FrontierMarket
+Belarus,BLR,BY,FrontierMarket
+Belgium,BEL,BE,EuropeanMarket
+Belize,BLZ,BZ,FrontierMarket
+Benin,BEN,BJ,FrontierMarket
+Bermuda,BMU,BM,FrontierMarket
+Bhutan,BTN,BT,FrontierMarket
+Bolivia,BOL,BO,FrontierMarket
+Bosnia and Herzegovina,BIH,BA,FrontierMarket
+Botswana,BWA,BW,FrontierMarket
+Brazil,BRA,BR,LatinAmericanMarket
+British Virgin Islands,VGB,VG,FrontierMarket
+Brunei Darussalam,BRN,BN,FrontierMarket
+Bulgaria,BGR,BG,FrontierMarket
+Burkina Faso,BFA,BF,FrontierMarket
+Burundi,BDI,BI,FrontierMarket
+Cabo Verde,CPV,CV,FrontierMarket
+Cambodia,KHM,KH,FrontierMarket
+Cameroon,CMR,CM,FrontierMarket
+Canada,CAN,CA,DevelopedMarket
+Cayman Islands,CYM,KY,FrontierMarket
+Central African Republic,CAF,CF,FrontierMarket
+Chad,TCD,TD,FrontierMarket
+Chile,CHL,CL,LatinAmericanMarket
+China,CHN,CN,EmergingAsianMarket
+Colombia,COL,CO,LatinAmericanMarket
+Comoros,COM,KM,FrontierMarket
+"Congo, Dem. Rep.",COD,CD,FrontierMarket
+"Congo, Rep.",COG,CG,FrontierMarket
+Costa Rica,CRI,CR,FrontierMarket
+Cote d'Ivoire,CIV,CI,FrontierMarket
+Croatia,HRV,HR,FrontierMarket
+Cuba,CUB,CU,FrontierMarket
+Curacao,CUW,CW,FrontierMarket
+Cyprus,CYP,CY,FrontierMarket
+Czech Republic,CZE,CZ,EmergingMarket
+Denmark,DNK,DK,EuropeanMarket
+Djibouti,DJI,DJ,FrontierMarket
+Dominica,DMA,DM,FrontierMarket
+Dominican Republic,DOM,DO,FrontierMarket
+Ecuador,ECU,EC,FrontierMarket
+"Egypt, Arab Rep.",EGY,EG,EmergingMarket
+El Salvador,SLV,SV,FrontierMarket
+Equatorial Guinea,GNQ,GQ,FrontierMarket
+Eritrea,ERI,ER,FrontierMarket
+Estonia,EST,EE,FrontierMarket
+Ethiopia,ETH,ET,FrontierMarket
+Faroe Islands,FRO,FO,FrontierMarket
+Fiji,FJI,FJ,FrontierMarket
+Finland,FIN,FI,DevelopedMarket
+France,FRA,FR,EuropeanMarket
+French Polynesia,PYF,PF,FrontierMarket
+Gabon,GAB,GA,FrontierMarket
+"Gambia, The",GMB,GM,FrontierMarket
+Georgia,GEO,GE,FrontierMarket
+Germany,DEU,DE,EuropeanMarket
+Ghana,GHA,GH,FrontierMarket
+Gibraltar,GIB,GI,FrontierMarket
+Greece,GRC,GR,EmergingMarket
+Greenland,GRL,GL,FrontierMarket
+Grenada,GRD,GD,FrontierMarket
+Guam,GUM,GU,FrontierMarket
+Guatemala,GTM,GT,FrontierMarket
+Guinea,GIN,GN,FrontierMarket
+Guinea-Bissau,GNB,GW,FrontierMarket
+Guyana,GUY,GY,FrontierMarket
+Haiti,HTI,HT,FrontierMarket
+Honduras,HND,HN,FrontierMarket
+"Hong Kong SAR, China",HKG,HK,PacificMarket
+Hungary,HUN,HU,EmergingMarket
+Iceland,ISL,IS,FrontierMarket
+India,IND,IN,EmergingAsianMarket
+Indonesia,IDN,ID,EmergingAsianMarket
+"Iran, Islamic Rep.",IRN,IR,FrontierMarket
+Iraq,IRQ,IQ,FrontierMarket
+Ireland,IRL,IE,EuropeanMarket
+Isle of Man,IMN,IM,FrontierMarket
+Israel,ISR,IL,DevelopedMarket
+Italy,ITA,IT,EuropeanMarket
+Jamaica,JAM,JM,FrontierMarket
+Japan,JPN,JP,PacificMarket
+Jordan,JOR,JO,FrontierMarket
+Kazakhstan,KAZ,KZ,FrontierMarket
+Kenya,KEN,KE,FrontierMarket
+Kiribati,KIR,KI,FrontierMarket
+"Korea, Dem. People?s Rep.",PRK,KP,FrontierMarket
+"Korea, Rep.",KOR,KR,EmergingAsianMarket
+Kuwait,KWT,KW,FrontierMarket
+Kyrgyz Republic,KGZ,KG,FrontierMarket
+Lao PDR,LAO,LA,FrontierMarket
+Latvia,LVA,LV,FrontierMarket
+Lebanon,LBN,LB,FrontierMarket
+Lesotho,LSO,LS,FrontierMarket
+Liberia,LBR,LR,FrontierMarket
+Libya,LBY,LY,FrontierMarket
+Lithuania,LTU,LT,FrontierMarket
+Luxembourg,LUX,LU,FrontierMarket
+"Macao SAR, China",MAC,MO,FrontierMarket
+"Macedonia, FYR",MKD,MK,FrontierMarket
+Madagascar,MDG,MG,FrontierMarket
+Malawi,MWI,MW,FrontierMarket
+Malaysia,MYS,MY,EmergingAsianMarket
+Maldives,MDV,MV,FrontierMarket
+Mali,MLI,ML,FrontierMarket
+Malta,MLT,MT,FrontierMarket
+Marshall Islands,MHL,MH,FrontierMarket
+Mauritania,MRT,MR,FrontierMarket
+Mauritius,MUS,MU,FrontierMarket
+Mexico,MEX,MX,LatinAmericanMarket
+"Micronesia, Fed. Sts.",FSM,FM,FrontierMarket
+Moldova,MDA,MD,FrontierMarket
+Mongolia,MNG,MN,FrontierMarket
+Montenegro,MNE,ME,FrontierMarket
+Morocco,MAR,MA,FrontierMarket
+Mozambique,MOZ,MZ,FrontierMarket
+Myanmar,MMR,MM,FrontierMarket
+Namibia,NAM,NA,FrontierMarket
+Nauru,NRU,NR,FrontierMarket
+Nepal,NPL,NP,FrontierMarket
+Netherlands,NLD,NL,EuropeanMarket
+New Caledonia,NCL,NC,FrontierMarket
+New Zealand,NZL,NZ,PacificMarket
+Nicaragua,NIC,NI,FrontierMarket
+Niger,NER,NE,FrontierMarket
+Nigeria,NGA,NG,FrontierMarket
+Norway,NOR,NO,EuropeanMarket
+Oman,OMN,OM,FrontierMarket
+Pakistan,PAK,PK,EmergingAsianMarket
+Palau,PLW,PW,FrontierMarket
+Panama,PAN,PA,FrontierMarket
+Papua New Guinea,PNG,PG,FrontierMarket
+Paraguay,PRY,PY,FrontierMarket
+Peru,PER,PE,LatinAmericanMarket
+Philippines,PHL,PH,EmergingAsianMarket
+Poland,POL,PL,EmergingMarket
+Portugal,PRT,PT,EuropeanMarket
+Puerto Rico,PRI,PR,FrontierMarket
+Qatar,QAT,QA,EmergingMarket
+Romania,ROU,RO,FrontierMarket
+Russian Federation,RUS,RU,EmergingMarket
+Rwanda,RWA,RW,FrontierMarket
+Samoa,WSM,WS,FrontierMarket
+San Marino,SMR,SM,FrontierMarket
+Sao Tome and Principe,STP,ST,FrontierMarket
+Saudi Arabia,SAU,SA,EmergingMarket
+Senegal,SEN,SN,FrontierMarket
+Serbia,SRB,RS,FrontierMarket
+Seychelles,SYC,SC,FrontierMarket
+Sierra Leone,SLE,SL,FrontierMarket
+Singapore,SGP,SG,PacificMarket
+Sint Maarten (Dutch part),SXM,SX,FrontierMarket
+Slovak Republic,SVK,SK,FrontierMarket
+Slovenia,SVN,SI,FrontierMarket
+Solomon Islands,SLB,SB,FrontierMarket
+Somalia,SOM,SO,FrontierMarket
+South Africa,ZAF,ZA,EmergingMarket
+South Sudan,SSD,SS,FrontierMarket
+Spain,ESP,ES,EuropeanMarket
+Sri Lanka,LKA,LK,FrontierMarket
+St. Kitts and Nevis,KNA,KN,FrontierMarket
+St. Lucia,LCA,LC,FrontierMarket
+St. Vincent and the Grenadines,VCT,VC,FrontierMarket
+Sudan,SDN,SD,FrontierMarket
+Suriname,SUR,SR,FrontierMarket
+Swaziland,SWZ,SZ,FrontierMarket
+Sweden,SWE,SE,EuropeanMarket
+Switzerland,CHE,CH,EuropeanMarket
+Syrian Arab Republic,SYR,SY,FrontierMarket
+Tajikistan,TJK,TJ,FrontierMarket
+Tanzania,TZA,TZ,FrontierMarket
+Thailand,THA,TH,EmergingAsianMarket
+Timor-Leste,TLS,TL,FrontierMarket
+Togo,TGO,TG,FrontierMarket
+Tonga,TON,TO,FrontierMarket
+Trinidad and Tobago,TTO,TT,FrontierMarket
+Tunisia,TUN,TN,FrontierMarket
+Turkey,TUR,TR,EmergingMarket
+Turkmenistan,TKM,TM,FrontierMarket
+Tuvalu,TUV,TV,FrontierMarket
+Uganda,UGA,UG,FrontierMarket
+Ukraine,UKR,UA,FrontierMarket
+United Arab Emirates,ARE,AE,EmergingMarket
+United Kingdom,GBR,GB,EuropeanMarket
+United States,USA,US,USMarket
+Uruguay,URY,UY,FrontierMarket
+Uzbekistan,UZB,UZ,FrontierMarket
+Vanuatu,VUT,VU,FrontierMarket
+"Venezuela, RB",VEN,VE,FrontierMarket
+Vietnam,VNM,VN,FrontierMarket
+Virgin Islands (U.S.),VIR,VI,FrontierMarket
+"Yemen, Rep.",YEM,YE,FrontierMarket
+Zambia,ZMB,ZM,FrontierMarket
+Zimbabwe,ZWE,ZW,FrontierMarket
