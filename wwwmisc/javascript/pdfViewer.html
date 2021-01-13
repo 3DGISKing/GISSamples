@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf Viewer</title>
+    <style>
+        html {
+            height: 100%
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+    </style>
+
+</head>
+<body>
+<iframe id = "frame" src="" style="width: 100%;height: 100%;border: none; display: none"></iframe>
+
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('pdf')) {
+        var src = urlParams.get('pdf');
+
+        var frame = document.getElementById("frame");
+
+        frame.src = src;
+
+        frame.style.display = "block";
+
+
+    } else {
+
+    }
+
+</script>
+
+
+</body>
+</html>
