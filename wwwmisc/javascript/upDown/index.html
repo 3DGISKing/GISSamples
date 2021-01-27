@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Updown</title>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<div id="grid"></div>
+
+<script>
+    $(function() {
+
+        var i, tmpl = "<table>";
+
+        for (i=1; i<=10; i++) {
+            tmpl += "<tr><td>Item"  +  i  + "</td><td><button>Up</button></td><td><button>Down</button></td></tr>";
+        }
+
+        tmpl += "</table>";
+
+        grid.innerHTML = tmpl;
+
+        var totalTrs = $("tr").length;
+
+        $("button").on("click", function(e) {
+            var currRow = $(this).parent().parent();
+            var index = currRow.index(),
+                $row;
+
+            if(e.target.innerHTML == "Up") {
+                if(index != 0) {
+                    currRow.insertBefore($("tr:eq(" + (index-1) +  ")"));
+                }
+            } else if(e.target.innerHTML == "Down") {
+                if(index != (totalTrs-1)) {
+                    currRow.insertAfter($("tr:eq(" + (index+1)  +  ")"));
+                }
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>
