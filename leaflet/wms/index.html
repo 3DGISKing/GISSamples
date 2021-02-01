@@ -21,12 +21,39 @@
 <body>
 <div id="mapid"></div>
 <script>
-    var mymap = L.map('mapid').setView([40.08, -4.15], 6);
+    /*
+
+    const map = L.map('mapid').setView([40.08, -4.15], 6);
 
     var wmsLayer = L.tileLayer.wms('https://www.ign.es/wms-inspire/pnoa-ma?', {
         layers: 'OI.MosaicElement'
-    }).addTo(mymap);
+    }).addTo(map);
 
+    */
+
+    // test another url
+    // latlng
+    const map = L.map('mapid').setView([40.4478, -3.6962], 12);
+
+    var wmsLayer = L.tileLayer.wms('https://sigma.madrid.es/arcgismalla/services/SIGMA/MPCARTO_BASE_2016/MapServer/WmsServer?', {
+        //layers: 'SIGMA_ETRS89.CARTOGRAFIA.F8_0063S_Manzana'
+        layers: '3',
+        format: 'image/png',
+        transparent: true,
+    }).addTo(map);
+
+    const addMapbox = false;
+
+    if(addMapbox) {
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiM2RnaXNraW5nIiwiYSI6ImNqcnRidjcxYTA1ZGc0M2xmbTI1ZjZ1eXEifQ.x2e8WXV6bA08gCU3NHVWIA'
+        }).addTo(map);
+    }
 </script>
 
 </body>
