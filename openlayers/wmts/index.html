@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script src="jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+    <title>OpenLayers WMTS</title>
+</head>
+<body>
+<h2>My Map</h2>
+<div id="map" class="map"></div>
+<script type="text/javascript">
+    const WMTSUrl = 'https://www.ign.es/wmts/pnoa-ma?request=getcapabilities&service=wmts';
+
+    const wmsCapabilitiesFormat = new ol.format.WMTSCapabilities();
+
+    jQuery.ajax({
+        type: "GET",
+        url: WMTSUrl,
+        dataType: "xml",
+        success: function(xmlDocument) {
+            const info = wmsCapabilitiesFormat.read(xmlDocument);
+
+            console.log(info);
+
+            const options = ol.source.WMTS.optionsFromCapabilities(info, {
+                layer: 'OI.OrthoimageCoverage',
+                //matrixSet: 'EPSG:4326',
+                matrixSet: 'InspireCRS84Quad'
+            });
+
+            console.log(options);
+
+            const  projection = ol.proj.get('EPSG:4326');
+
+            //options.projection = projection;
+
+            console.log(projection)
+
+            new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM(),
+                        opacity: 0.7
+                    }),
+                    new ol.layer.Tile({
+                        opacity: 0.7,
+                        source: new ol.source.WMTS(options ),
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([-3.87, 39.39]),
+                    zoom: 2
+                })
+            });
+        },
+        error: (e) => {
+            console.error(e);
+        }
+    });
+
+</script>
+</body>
+</html>
