@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OSM - Emoji Air Pollution Map</title>
+<!--    <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.min.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">-->
+    
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.css">
+    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="slickmodal/assets/css/slickModal.min.css" media="screen" />
+    
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="./css/app.css" type="text/css">
+ 
+    <link rel="stylesheet" href="./lib/openlayer-thirdparty/ol-layerswitcher.css" type="text/css">
+    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="slickmodal/assets/js/slickModal.min.js"></script>
+    <style type="text/css">
+        .map:-moz-full-screen {
+            height: 100%;
+        }
+        .map:-webkit-full-screen {
+            height: 100%;
+        }
+        .map:-ms-fullscreen {
+            height: 100%;
+        }
+        .map:fullscreen {
+            height: 100%;
+        }
+        .ol-rotate {
+            top: 3em;
+        }
+        .slickModal.testimonials ul {
+          list-style: none;
+        }
+    
+        .slickModal.testimonials li img {
+            position: absolute;
+            top: -84px;
+            left: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            /* border-radius: 50%; */
+        }
+    
+        .slickModal.testimonials .title {
+            text-align: center;
+            display: block;
+            font-weight: 600;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+    
+        .slickModal.testimonials p {
+            text-align: center;
+        }
+    
+        /* Demo */
+        .slickModal.contentWindow .slickWindow {
+            overflow-y: auto;
+            overflow-x: hidden;
+            color: #333;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content {
+            padding: 40px;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content .title,
+        .slickModal.contentWindow .slickWindow .content .subtitle,
+        .slickModal.contentWindow .slickWindow .content p {
+            padding: 14px 0;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content .title {
+            font-size: 28px;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content .title:first-of-type {
+            padding-top: 0;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content .subtitle {
+            font-size: 18px;
+            font-weight: 800;
+            border-bottom: solid 1px #dedede;
+            margin-bottom: 14px;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content ul {
+            margin-top: 20px;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content p,
+        .slickModal.contentWindow .slickWindow .content ul li {
+            font-size: 17px;
+            line-height: 22px;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content p {
+            opacity: 0.7;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content ul li {
+            margin-left: 14px;
+        }
+    
+        .slickModal.contentWindow .slickWindow .content .cta {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 800;
+            margin-top: 30px;
+            letter-spacing: 0.5px;
+        }
+    
+        .slickModal.contentWindow .close.icon {
+            opacity: 1;
+        }
+    
+        .slickModal.contentWindow .close.icon:hover,
+        .slickModal.contentWindow .slickWindow .content .cta:hover {
+            opacity: 0.6;
+        }
+    
+        .slickModal.contentWindow .close.icon:before,
+        .slickModal.contentWindow .close.icon:after {
+            background: #fff;
+        }
+        #map:focus {
+            outline: #4A74A8 solid 0.15em;
+        }
+    </style>
+</head>
+<br>
+<div id="left-top-pane" style="transition-duration: 0.4s;">
+    <a href="javascript:void(0)" class="pp-open"><img src="img/Emoji_Earth_Globe_Europe_Africa.png"></a>
+</div>
+
+<!--<div>-->
+    <img id = "logo" src="img/Emoji_Earth_Globe_Europe_Africa.png" alt="" style="display: none">
+<!--</div>-->
+
+<div id="popup-1" class="slickModal contentWindow">
+    <div class="slickWindow">
+        <!-- Your popup content -->
+        <img src="img/pic.jpg" alt="Lorem ipsum" style="display: none;" />
+        <div class="content">
+            <div class="title">Emoji Air Pollution Map</div>
+            <p>When I moved from Minneapolis to Delhi in 2015, I anticipated many of India’s challenges - but didn't realize that breathing would slowly be killing me too.</p>
+            <span>
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/11.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/12.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/13.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/21.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/22.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/23.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/31.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/32.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/33.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/41.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/42.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/43.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/51.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/52.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/53.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/61.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/62.png" width="35px" height="35px">
+                          <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502868416/63.png" width="35px" height="35px">
+                      </span>
+            <div class="title">Air Pollution 101</div>
+            <p>
+                It's not just an India (or China) problem either. The WHO says that more than
+                6.5 million people die every year worldwide due to air pollution! Air pollution sucks but keeping an eye on the air quality in your city and figuring out how to protect yourself should be straight forward. That's why I made this map for you.
+                Although it wouldn't be possible without <a href="http://openaq.org/" target="_blank" tabindex="-1">OpenAQ</a>, the World Health Organization, NASA and <a href="http://emojione.com/" target="_blank" tabindex="-1">EmojiOne</a>. <br><br>If you
+                have any questions or want to chat about air pollution, I'd love to hear from you: <a href="http://twitter.com/amrit_sharma" tabindex="-1">twitter.com/amrit_sharma</a> .
+            </p>
+            <div class="cta closeModal">&xlarr;&nbsp;&nbsp; Go back</div>
+        </div>
+        <!-- / Your popup content -->
+    </div>
+</div>
+<div id="popup-2" class="slickModal testimonials">
+    <div class="slickWindow">
+        <ul>
+            <li>
+                <img src="http://res.cloudinary.com/kohinoor/image/upload/v1502867966/fire.png" />
+                <!-- EMOJI goes here! -->
+                <div class="title">FIREEEEE</div>
+                <p>Arrghh! That's hot! This is a fire detected by a NASA satellite during the past 24 hours. It's possible that it's still burning as you read this.&nbsp;<br/><a class="cta" href="http://airairair.org/airquality/fire?utm_source=emoji-map&utm_campaign=website&utm_medium=emoji_click_fire"
+                                                                                                                                                                                  target="_blank">Learn More</a>&nbsp;&nbsp;or&nbsp; <a class="cta" target="_blank" href="http://airairair.org/shop?utm_source=emoji-map&utm_campaign=website&utm_medium=emoji_click_fire">Fight Air Pollution ⟶</a></p>
+            </li>
+        </ul>
+        <div class="dots"></div>
+    </div>
+</div>
+<div id="popup-5" class="slickModal testimonials"><div class="slickOverlay animated closeModal fadeOut" style="background: rgba(0, 0, 0, 0.2); animation-duration: 0.3s;"></div>
+    <div class="slickWindow animated bottomCenter fadeOut" style="box-shadow: none; background: rgb(255, 255, 255); animation-duration: 0.4s; animation-delay: 0.15s; border-radius: 0px; width: 520px; height: auto; margin: 20px auto; padding: 30px;"><div class="slickCloseBtn close closeModal icon"></div>
+        <!-- Your popup content -->
+        <div class="slickContent animated" style="animation-duration: 0.4s; animation-delay: 0.4s;"><ul>
+            <li>
+                <img class="pollution-callout-pic" src="http://res.cloudinary.com/kohinoor/image/upload/v1502868343/12.png">
+                <!-- EMOJI goes here! -->
+                <div class="title">Good</div>
+                <p><span>Awesome! The air quality is good. It's a great day to be active outside.</span>&nbsp;<br><a class="cta" href="http://airairair.org/airquality/good?utm_source=emoji-map&amp;utm_campaign=website&amp;utm_medium=emoji_click_12" target="_blank">Learn More</a>&nbsp; &nbsp;or&nbsp; <a class="cta-1" target="_blank" href="http://airairair.org/shop?utm_source=emoji-map&amp;utm_campaign=website&amp;utm_medium=emoji_click_12">Fight Air Pollution ⟶</a></p>
+            </li>
+        </ul><div class="dots"></div></div>
+        
+        <!-- / Your popup content -->
+    </div>
+</div>
+
+<div id="left-top-socials" class="visibleMobile col-xs-12 col-sm-12">
+    <div class='col-xs-3 col-sm-3'><a target="_blank" href="#" class="fa fa-facebook mob-fb"></a></div>
+    
+    <div class='col-xs-3 col-sm-3'><a target="_blank" href="#" class="fa fa-bolt mob-fbm"></a></div>
+    
+    <div class='col-xs-3 col-sm-3'> <a target="_blank" href="#" class="fa fa-twitter mob-tw"></a></div>
+    
+    <div class='col-xs-3 col-sm-3'> <a target="_blank" href="#" class="fa fa-whatsapp mob-wa"></a></div>
+</div>
+
+<h1 style="margin-left: 100px">Emoji Air Pollution Map</h1>
+<div id="map" style="height:80%" class="map" tabindex="0"></div>
+
+<div id ="buttons_box">
+    <button id="export-png" style="margin: 10px 5px 10px 10px;">Download Png</button>
+</div>
+
+<script src="./lib/openlayer-thirdparty/ol-layerswitcher.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+https://github.com/mapbox/bi-dashboard
+
+final target product
+
+compstak.com/
+
+
+It would be from the first one on this list
+https://api.census.gov/data/2017/acs/acs5.html
+this would be the first variable to map https://api.census.gov/data/2017/acs/acs5/variables/B21004_001E.json
+
+mapbox API
+https://docs.mapbox.com/mapbox-gl-js/api/#map

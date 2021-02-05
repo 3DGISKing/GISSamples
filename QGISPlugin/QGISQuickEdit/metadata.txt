@@ -1,0 +1,15 @@
+[general]
+name=QuickEdit
+qgisMinimumVersion=3.4
+qgisMaximumVersion=3.98
+description=tool for quick editing attributes in field campaigns
+about=tool for quick editing attributes in field campaigns
+version=0.1
+changelog=0.1
+    * not yet
+author=haris
+email=haris
+tags=draw, line
+homepage=https://github.com
+repository=https://github.com
+tracker=https://github.com

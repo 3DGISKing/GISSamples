@@ -1,0 +1,16 @@
+SET OSGEO4W_ROOT="C:\Program Files\QGIS 3.4"
+SET QGISNAME=qgis
+SET QGIS=%OSGEO4W_ROOT%\apps\%QGISNAME%
+SET QGIS_PREFIX_PATH=%QGIS%
+SET PYCHARM="C:\Program Files (x86)\JetBrains\PyCharm 5.0\bin\pycharm.exe"
+
+CALL %OSGEO4W_ROOT%\bin\o4w_env.bat
+
+SET PATH=%PATH%;%OSGEO4W_ROOT%\apps\Qt5\bin
+SET PATH=%PATH%;%QGIS%\bin
+SET PATH=%PATH%;%OSGEO4W_ROOT%\apps\Python37\Scripts
+
+SET PYTHONPATH=%QGIS%\python;%PYTHONPATH%
+SET PYTHONHOME=%OSGEO4W_ROOT%\apps\Python37
+
+start "PyCharm aware of QGIS" /B %PYCHARM% %*

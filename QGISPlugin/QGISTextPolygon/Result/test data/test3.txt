@@ -1,0 +1,2 @@
+circle centered at 033654.00S 1281110.00E radius 75 NM 
+circle centered at 033654.00S 1281110.00E radius 50 NM

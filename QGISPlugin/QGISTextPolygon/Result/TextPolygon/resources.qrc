@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/plugins/TextPolygon" >
+    <file>textpolygon_icon.png</file>
+  </qresource>
+</RCC>

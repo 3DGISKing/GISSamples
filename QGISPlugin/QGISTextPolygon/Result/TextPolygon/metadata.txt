@@ -1,0 +1,18 @@
+[general]
+name: TextPolygon
+qgisMinimumVersion=2.14
+description: this Qgis Plugin opens a dialog where the user can generate polygon from text
+version=1.0
+author=WuJingli
+email=wugis3@yahoo.com
+about=Generating polygon from text
+tracker=https://
+repository=https://
+
+changelog:
+    Version 1.0:
+    * first release
+
+icon:textpolygon_icon.png
+email:wugis3@yahoo.com
+author:WuJingli

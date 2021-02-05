@@ -1,0 +1,15 @@
+[general]
+name=Draw Line
+qgisMinimumVersion=3.4
+qgisMaximumVersion=3.98
+description=draws a set of lines from the corners of (a) rectangular shape(s) at a predefined angle and out to a predefined distance.
+about=This action should be performed on all shapes in a defined layer. The plugin needs to be capable to identify the "front" (side 1?) (you could say where the door is of the structure) because angles are different at this side than out from the "rear" of the structures. From the "front" on the corners two sets of lines need to be drawn automatically. One set of lines from the two rear corners (angles and distances as shown in the added files)
+version=0.1
+changelog=0.1
+    * not yet
+author=3DGISKing
+email=wugis1219@gmail.com
+tags=draw, line
+homepage=https://github.com/tarot231/CalculateGeometry
+repository=https://github.com
+tracker=https://github.com
