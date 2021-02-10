@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UTM To Lon Lat</title>
+    <script src = "proj4_2.5.0.js"></script>
+</head>
+<body>
+
+<script>
+    function utmToLonLat(easting, northing, zoneNumber) {
+        const utm = `+proj=utm +zone=${zoneNumber}`;
+        const wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
+
+        return proj4(utm, wgs84, [easting, northing]);
+    }
+
+    // Rotteradam easting and northing in UTM31U
+    const x = 602225.178, y = 5751992.12;
+
+    const lonLat = utmToLonLat(x, y, 31);
+
+    // Rotteradam lon lat
+    // 4.4862675, 51.9093703
+
+    console.log(lonLat);
+</script>
+
+</body>
+</html>
