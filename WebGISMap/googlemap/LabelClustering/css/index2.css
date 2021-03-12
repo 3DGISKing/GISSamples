@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+
+.title{
+    text-decoration:none!important;
+    font-weight:bold!important;
+
+}
+.title:hover{
+    color:#888!important;
+}
+
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+
+
+#status-legend {
+border-radius: 3px;
+background:white;
+
+box-shadow: 0 1px 10px rgba(0,0,0,0.10);
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+padding: 10px !important;
+position: absolute;
+
+width:100px;
+margin-right:10px;
+margin-bottom:10px;
+
+}
+
+#status-legend div {
+display: block;
+padding: 5px;
+}
+
+
+
+#status-legend a {
+font-size: 13px;
+margin: 0;
+text-decoration: none;
+border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+#status-legend a:last-child {
+border: none;
+}
+
+#status-legend a:hover {
+color: #404040;
+}
+
+#status-legend a:link {
+color: grey;
+}
+
+#status-legend a.active {
+font-weight: bold ;
+color: black;
+}
+
+#status-legend a.active:hover {
+color: #404040;
+
+}
+
+#status-legend span {
+border-radius: 50%;
+display: inline-block;
+height: 10px;
+margin-right: 10px;
+width: 10px;
+}
+
+#status-legend img {
+vertical-align: middle;
+}
+
+
+.legend {
+cursor: pointer;
+background-color: #fff;
+border-radius: 3px;
+bottom: 30px;
+right:20px;
+box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+padding: 10px;
+position: absolute;
+z-index: 1;
+}
+ 
+.legend h4 {
+margin: 0 0 10px;
+}
+
+.legend div span {
+border-radius: 50%;
+display: inline-block;
+height: 10px;
+margin-right: 10px;
+width: 10px;
+}
+
+.div circle
+{
+    width: 50;
+    height:100;
+    
+}
+
+#satellite {
+margin: 0 auto;
+background-color: #fff;
+color: black;
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+padding: 0.5em;
+border: 2px solid #fff;
+border-radius: 3px;
+box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+cursor: pointer;
+position: absolute;
+left: 10px;
+bottom: 40px;
+}
+
+.mapboxgl-ctrl-top-left {
+    top: 100px;
+    left: 0;
+}

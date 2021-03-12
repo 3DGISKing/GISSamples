@@ -1,0 +1,896 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137797407-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137797407-1');
+    </script>
+
+    <title>Open Heritage 3D</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index2.css">
+    <link rel="stylesheet" type="text/css" href="css/indexNews.css">
+    <meta name="viewport" content="width=device-width">
+    <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+
+
+    <meta name="keywords" content=
+            "Open, Heritage, Openheritage, Openheritage3d, 3d, Photogrammetry, Scan, e57, lidar, short, range, Cyark, University, of, South, florida, Historic, Environment, Scotland, data, set, cultural, culture, research, documentation,laser scanning, non-commercial, creative commons, unesco, world heritage, monuments, DOI, drone, images ">
+
+</head>
+
+<style>
+    #map {
+        padding-top: 55px;
+    }
+
+    html, body {
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .map-container {
+        padding-top: 55px;
+        margin-top: 60px;
+        width: 100%;
+    }
+
+    .block {
+        border-radius: 3px;
+        bottom: 30px;
+        top: 80px;
+        width: 400px;
+        left: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 10px;
+        position: absolute;
+        z-index: 2;
+        display: block;
+        background: white;
+    }
+
+    .block h1 {
+        font-size: 25px !important;
+        padding-left: 10px;
+        margin-bottom: 0;
+        letter-spacing: -.2px;
+    }
+
+    .block .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        transition: all 200ms;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .block .close:hover {
+        color: green;
+    }
+
+    .block .content {
+        max-height: 30%;
+        overflow: auto;
+    }
+
+
+    .innerBlock {
+        height: 100%;
+        position: absolute;
+    }
+
+    .dib-post {
+        padding-bottom: 20px;
+        display: block
+    }
+
+    .dib-post-title {
+        padding-bottom: 10px;
+        font-size: 20px !important;
+        letter-spacing: -.2px;
+    }
+
+    .dib-post-title a {
+        text-decoration: none;
+    }
+
+    .dib-post-title-link {
+    }
+
+    .dib-post-featured-image {
+        display: none;
+
+    }
+
+    .dib-post-author {
+        margin-bottom: 2px;
+    }
+
+    .dib-post-date {
+
+    }
+
+    .dib-post-content {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .dib-shown-posts {
+        display: block;
+        height: 90%;
+        overflow: auto;
+        bottom: 30px;
+        padding: 10px;
+    }
+
+    #dib-recent-posts {
+
+    }
+
+    #blogButton {
+        margin: 0 auto;
+        background-color: #fff;
+        color: black;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 0.5em;
+        border: 2px solid #fff;
+        border-radius: 3px;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+        bottom: 100px;
+        z-index: 1;
+    }
+
+
+    #blogButton newsButton {
+        text-decoration: none;
+    }
+
+    .gm-style .gm-style-iw-c {
+        max-width: 400px !important;
+    }
+
+    @media handheld and (max-width: 666px), screen and (max-device-width: 666px), screen and (max-width: 666px) {
+        .block {
+            display: none;
+        }
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: grey;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00a5ff;
+    }
+
+
+    }
+
+
+</style>
+
+<body bgcolor="#f0f0f0">
+
+<header id="myHeader" class="header">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <nav class='main-nav'>
+
+        <ul>
+
+            <logo>
+                <a href='https://openheritage3d.org/'>
+                    <img src='images/transparent-White.png'/>
+                </a>
+            </logo>
+            <burgerIcon>
+                <a href="javascript:void(0);" id="myBurgerIcon" class="icon" onclick="myFunction()"><i
+                        class="fa fa-bars"></i></a>
+            </burgerIcon>
+            <menu id="myLinks" class="links">
+                <li><a href="data" class='title'>Data Sets</a></li>
+                <!--<li><a href='contributePage.php' class='title'>Join Us</a></li>-->
+                <!--<li><a  href='howto' class='title'>How To</a></li>-->
+                <li><a href='faq' class='title'>FAQ</a></li>
+                <li><a href='news' class='title'>News</a></li>
+                <li><a href='about' class='title'>About</a></li>
+                <li><a href='contactPage' class='title'>Contact</a></li>
+                <li><a href='joinusPage' class='title'>Join Us</a></li>
+            </menu>
+
+
+        </ul>
+    </nav>
+</header>
+
+<div id="status-legend"><h4><strong>Status Legend</strong></h4></div>
+
+<!-- Adds the blog open button-->
+<!--<nav id='blogButton'><strong><a class='newsButton' onclick='openBlog()'>News</a></strong></nav>-->
+
+<!-- Adds the map-->
+<div id="map" class="map-container"></div>
+
+<!-- This is the blog -->
+<div id="myblock" class="block">
+    <div class="innerBlock">
+        <!-- This is the corner close button -->
+        <a class="close" onclick='closeBlog()'>×</a>
+        <h1>Latest News</h1>
+        <div class="dib-shown-posts" id="dib-recent-posts"></div>
+    </div>
+</div>
+
+
+<!--Hamburger Menu-->
+<script>
+
+    function myFunction() {
+        var links = document.getElementById("myLinks");
+        var header = document.getElementById("myHeader");
+        var map = document.getElementById("map");
+
+
+        if (links.className === "links") {
+            links.className = "links responsive";
+        } else {
+            links.className = "links";
+        }
+
+
+        if (header.className === "header") {
+            header.className += " responsive";
+        } else {
+            header.className = "header";
+        }
+
+
+        if (map.className === "map-container") {
+            map.className += " responsive";
+
+        } else {
+            map.className = "map-container";
+
+        }
+
+    }
+
+
+    /*
+    function myFunction() {
+      var links = document.getElementById("myLinks");
+      var header = document.getElementById("myHedaer");
+      var burgerIcon = document.getElementById("myBurgerIcon");
+      var map = document.getElementById("map");
+
+
+        if (links.style.display === "block")
+        {
+            links.style.display = "none";
+            header.style.height = "60px"
+            map.style.marginTop = "60px"
+
+        }
+        else
+        {
+            links.style.display = "block";
+            header.style.height = "255px"
+            map.style.marginTop = "255px"
+        }
+    }
+    */
+
+</script>
+
+
+<script>
+    function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            //center: {lat: 40.674, lng: -30},
+            center: {lat: 40, lng: -21},
+            zoom: 3,
+
+            minZoom: 3,
+            streetViewControl: false,
+            fullscreenControl: false,
+            mapTypeControl: false,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP,
+            },
+
+            //mapTypeControlOptions: {
+            //style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            //position: google.maps.ControlPosition.LEFT_TOP
+            //},
+            mapTypeId: 'terrain',
+
+            styles: [
+
+                {
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#c0c0c0"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "color": "#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#c0c0c0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#00a414"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "color": "#d7d7d7"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#bdbdbd"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.locality",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.neighborhood",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.province",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "stylers": [
+                        {
+                            "color": "#c0c0c0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#c0c0c0"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#c0c0c0"
+                        },
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#ffffff"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#757575"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#dadada"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#616161"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.station",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#c9c9c9"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                        {
+                            "color": "#e6e6e6"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                        {
+                            "color": "#9e9e9e"
+                        }
+                    ]
+                }
+            ]
+        });
+
+        //published and upcoming icons
+        var icons =
+            {
+                upcoming: {
+                    name: 'Upcoming',
+                    icon: 'images/UpcomingIcon.png'
+                },
+                published: {
+                    name: 'Published',
+                    icon: 'images/PublishedIcon.png'
+                }
+            };
+
+        var infoWindow = new google.maps.InfoWindow;
+        var hoverWindow = new google.maps.InfoWindow;
+
+        // Change this depending on the name of your PHP or XML file
+        downloadUrl('./indexMySqltoXML.php.xml', function (data) {
+
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            var markerArray = [];
+
+            Array.prototype.forEach.call(markers, function (markerElem) {
+
+                var name = markerElem.getAttribute('project_name');
+                var type = markerElem.getAttribute('status');
+                var doi = markerElem.getAttribute('doi');
+                var collectors = markerElem.getAttribute('collectors');
+                var collectorsURL = markerElem.getAttribute('collectorsURL');
+
+                var country = markerElem.getAttribute('country');
+
+                var collectionDateStart = markerElem.getAttribute('collection_date_start');
+                var collectionDateEnd = markerElem.getAttribute('collection_date_end');
+
+                var point = new google.maps.LatLng(
+                    parseFloat(markerElem.getAttribute('lat')),
+                    parseFloat(markerElem.getAttribute('lng')));
+
+
+                if (type == "Unpublished") {
+
+                } else {
+                    var infowincontent = document.createElement('div');
+
+                    var strong = document.createElement('strong');
+                    strong.textContent = name;
+                    strong.style.fontSize = "18px";
+                    infowincontent.appendChild(strong);
+
+                    infowincontent.appendChild(document.createElement('p'));
+
+
+                    var table = document.createElement('table');
+                    var tbody = document.createElement('tbody');
+                    var tr1 = document.createElement('tr');
+                    var td1_1 = document.createElement('td');
+                    var field1_1 = document.createElement('field');
+
+                    var td1_2 = document.createElement('td');
+                    var fill1_2 = document.createElement('fill');
+
+                    var tr2 = document.createElement('tr');
+                    var td2_1 = document.createElement('td');
+                    var field2_1 = document.createElement('field');
+
+                    var td2_2 = document.createElement('td');
+                    var fill2_2 = document.createElement('fill');
+
+                    var tr3 = document.createElement('tr');
+                    var td3_1 = document.createElement('td');
+                    var field3_1 = document.createElement('field');
+
+                    var td3_2 = document.createElement('td');
+                    var fill3_2 = document.createElement('fill');
+
+                    var tr4 = document.createElement('tr');
+                    var td4_1 = document.createElement('td');
+                    var field4_1 = document.createElement('field');
+
+                    var td4_2 = document.createElement('td');
+                    var fill4_2 = document.createElement('fill');
+
+                    //INPUTS
+                    field1_1.textContent = 'Country'
+                    fill1_2.textContent = country
+
+                    field2_1.textContent = 'Status'
+                    fill2_2.textContent = type
+
+                    field3_1.textContent = 'Date Collected'
+                    fill3_2.textContent = collectionDateStart + ' to ' + collectionDateEnd
+
+                    field4_1.textContent = 'Collectors'
+                    fill4_2.textContent = collectors
+
+                    table.style.marginBottom = "25px";
+                    infowincontent.appendChild(table);
+                    table.appendChild(tbody);
+
+
+                    tbody.appendChild(tr1);
+                    tr1.appendChild(td1_1);
+                    td1_1.appendChild(field1_1);
+
+                    tr1.appendChild(td1_2);
+                    td1_2.appendChild(fill1_2);
+
+
+                    tbody.appendChild(tr2);
+                    tr2.appendChild(td2_1);
+                    td2_1.appendChild(field2_1);
+
+                    tr2.appendChild(td2_2);
+                    td2_2.appendChild(fill2_2);
+
+                    tbody.appendChild(tr3);
+                    tr3.appendChild(td3_1);
+                    td3_1.appendChild(field3_1);
+
+                    tr3.appendChild(td3_2);
+                    td3_2.appendChild(fill3_2);
+
+                    tbody.appendChild(tr4);
+                    tr4.appendChild(td4_1);
+                    td4_1.appendChild(field4_1);
+
+                    tr4.appendChild(td4_2);
+                    td4_2.appendChild(fill4_2);
+
+
+                    var h2_1 = document.createElement('h2');
+                    var a_1 = document.createElement('a');
+
+                    infowincontent.appendChild(h2_1);
+                    h2_1.appendChild(a_1);
+                    a_1.href = 'project.php?id=' + doi
+                    a_1.textContent = 'Click here for details'
+
+                    //'<h2>' + '<a href="project.php?id='+ feature1.properties.project_id +'",">Click here for details</a>' + '</h2>'
+
+                    var hoverwincontent = document.createElement('div');
+
+                    var strongH = document.createElement('strong');
+                    strongH.textContent = name
+                    hoverwincontent.appendChild(strongH);
+
+                    hoverwincontent.appendChild(document.createElement('p'));
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        icon: 'images/' + type + 'Icon.png',
+                        position: point,
+                    });
+
+                    marker.addListener('mouseover', function () {
+                        hoverWindow.setContent(hoverwincontent);
+                        hoverWindow.open(map, marker);
+                    });
+
+                    marker.addListener('mouseout', function () {
+                        hoverWindow.setContent(hoverwincontent);
+                        hoverWindow.close(map, marker);
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.setContent(infowincontent);
+                        infoWindow.open(map, marker);
+                        hoverWindow.close(map, marker);
+                    });
+
+                    markerArray.push(marker);
+                }
+            });
+
+            var markerCluster = new MarkerClusterer(map, markerArray,
+                {imagePath: 'images/cluster'});
+
+            var legend = document.getElementById('status-legend');
+
+            for (var key in icons) {
+                var type = icons[key];
+                var name = type.name;
+                var icon = type.icon;
+                var div = document.createElement('div');
+                div.innerHTML = '<img src="' + icon + '"> ' + name;
+                legend.appendChild(div);
+            }
+
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+
+        });
+
+
+        // Bounds for North America
+        var allowedBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-71.2, -178.567918),
+            new google.maps.LatLng(71.2, -164.267108));
+
+        // Listen for the dragend event
+        google.maps.event.addListener(map, 'dragend', function () {
+            if (allowedBounds.contains(map.getCenter())) return;
+
+            var c = map.getCenter(),
+                x = c.lng(),
+                y = c.lat(),
+                maxY = allowedBounds.getNorthEast().lat(),
+                minY = allowedBounds.getSouthWest().lat();
+
+            if (y < minY) y = minY;
+            if (y > maxY) y = maxY;
+
+            map.setCenter(new google.maps.LatLng(y, x));
+        });
+
+
+    }
+
+
+    function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function () {
+            if (request.readyState == 4) {
+                request.onreadystatechange = doNothing;
+                callback(request, request.status);
+            }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+    }
+
+    function doNothing() {
+    }
+
+</script>
+
+
+<script src="js/markerclusterer.js"></script>
+
+<!--Close and Open blog-->
+<script>
+    function openBlog() {
+        document.getElementById("myblock").style.display = "block";
+    }
+
+    function closeBlog() {
+        document.getElementById("myblock").style.display = "none";
+    }
+</script>
+
+<!--Map-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0rdv11G13PoMDScp9TU7CpdGfSJhbzqo&callback=initMap"></script>
+
+<!--Blog-->
+<script type="text/javascript">
+    var dib_id = 'T9DX161688E7YQPM2WJS';
+    var dib_recent_posts = 3;
+</script>
+
+<!--Blog-->
+<script src="https://dropinblog.com/js/embed.js"></script>
+
+</body>
+</html>

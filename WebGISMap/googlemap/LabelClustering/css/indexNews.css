@@ -1,0 +1,55 @@
+.dib-post
+{
+    padding-top:20px;
+	display:block
+
+}
+
+.dib-post-title 
+{
+    padding-bottom:10px;
+    font-size:20px !important;
+
+}
+
+.dib-post-title a
+{
+    text-decoration: none;
+}
+
+.dib-post-title-link 
+{
+}
+
+.dib-post-featured-image
+{
+    width: 300px;
+}
+
+.dib-post-author 
+{
+    
+}
+
+.dib-post-date
+{
+    
+}
+
+.dib-post-content
+{
+    display:block
+    
+}
+
+.dib-shown-posts
+{
+    display:block;
+    height:70%;
+    overflow:auto;
+}
+
+#dib-recent-posts
+{
+
+}
