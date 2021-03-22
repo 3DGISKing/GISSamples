@@ -1,0 +1,22 @@
+#map-div {
+    width: 800px;
+    height: 100%;
+}
+.switch-panel-div {
+    position: absolute;
+    right: 320px;
+    bottom: 20px;
+    background-color: #eee;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: solid 1px #000;
+    width: 300px;
+}
+#legend-div {
+    position: absolute;
+    right: 5px;
+    bottom: 20px;
+    background-color: #eee;
+    width: 300px;
+    padding: 5px 5px;
+}
