@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/4.23/"></script>
+
+<script>
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/core/urlUtils","esri/layers/ImageryLayer"], function (esriConfig, Map, MapView, urlUtils, ImageryLayer) {
+        esriConfig.apiKey = "YOUR_API_KEY";
+
+        // urlUtils.addProxyRule({urlPrefix: "services2.4coffshore.net", proxyUrl: "https://map.4coffshore.com/offshorewind/proxy/proxy.ashx"});
+
+        const map = new Map({
+            basemap: "oceans",
+            ground: "world-elevation"}
+        );
+
+        const startLat = 52, startLon = 1;
+
+        const view = new MapView({
+            map: map,
+            center: [startLon, startLat],
+            zoom: 13, // Zoom level
+            container: "viewDiv" // Div element
+        });
+
+        const wmsServiceURL = "https://services2.4coffshore.net/OceanGeo/rest/services/Secured/WebsiteMap/MapServer";
+        const GWA150ServiceURL = "https://services2.4coffshore.net/oceangeo/rest/services/Secured/gwa3_250_windspeed_150m/ImageServer";
+        const GWA100ServiceURL = "https://services2.4coffshore.net/oceangeo/rest/services/Secured/gwa3_250_windspeed_100m/ImageServer";
+
+        const averageWindSpeedAtGlobal100mQ = new ImageryLayer({
+            url: GWA100ServiceURL,
+            listMode: "hide",
+            opacity: 0,
+            legendEnabled: !1,
+            visible: true,
+            title: "Average Wind Speed at 100m (Global Wind Atlas)",
+            popupTemplate: {title: "Mean Wind Speed - Height 100m", content: "{Raster.ItemPixelValue} m/s</BR>"},
+            copyright: "Global Wind Atlas 3.0, a free, web- based application developed, owned and operated by the Technical University of Denmark(DTU). The Global Wind Atlas 3.0 is released in partnership with the World Bank Group, utilizing data provided by Vortex, using funding provided by the Energy Sector Management Assistance Program (ESMAP). For additional information: https://globalwindatlas.info"
+        });
+
+        map.add(averageWindSpeedAtGlobal100mQ);
+    });
+</script>
+
+<body>
+<div id="viewDiv"></div>
+</body>
+</html>
